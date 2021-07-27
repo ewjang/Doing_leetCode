@@ -18,7 +18,7 @@ public class Soulution {
 			String a = "";
 
 			String[] tmp = strArray.split(" ");
-
+			
 			for (int i = 1; i < tmp.length; i++) {
 				a += tmp[i];
 			}
@@ -27,10 +27,9 @@ public class Soulution {
 			map.put(a,strArray);
 			
 			sort.add(a);
-			Collections.sort(sort);
-			
-			
 		}
+		Collections.sort(sort);
+		
 		for(int i = 0 ; i < sort.size(); i++) {
 			resultList.add(map.get(sort.get(i)));
 		}
@@ -39,7 +38,7 @@ public class Soulution {
 	}
 
 	public String[] reorderLogFiles(String[] logs) {
-
+		//1. 리스트 선언
 		// 문자로그 저장
 		List<String> strArrays = new ArrayList<>();
 		// 숫자로그 저장 
@@ -47,29 +46,29 @@ public class Soulution {
 		// 합치기
 		List<String> plusArrays =  new ArrayList<>();
 		
-		
+		//2. 문자로그 숫자로그 구분
 		for (String log : logs) {
 			String[] tmp = log.split(" ");
-
-			// 문자로그 숫자로그 구분
+			
 			if (!Character.isDigit(tmp[1].charAt(0))) {
 				strArrays.add(log);
-				
 			} else {
 				digitArrays.add(log);
 			}
 		}
-
+		//3. 문자로그 소팅
 		strArrays = strSort(strArrays);
-
+		//4. 리스트 병합
 		plusArrays.addAll(strArrays);
 		plusArrays.addAll(digitArrays);
 		
+		//4. List to Array
 		logs = new String[plusArrays.size()];
 		int size = 0;
 		for(String plusArray : plusArrays) {
 			logs[size++] = plusArray;
 		}
+		//plusArrays.toArray(); //List to Array
 	
 		return logs;
 	}
