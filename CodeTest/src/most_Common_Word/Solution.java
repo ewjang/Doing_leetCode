@@ -13,7 +13,7 @@ public class Solution {
 		System.out.println(Arrays.toString(banned));
 
 		// 1. 전처리
-		paragraph = paragraph.toLowerCase().replaceAll("[^a-zA-Z0-9 ]", "");
+		paragraph = paragraph.toLowerCase().replaceAll("[^a-zA-Z0-9 ]", " ");
 
 		// 2. 문장을 공백을 기준으로 단어 분리
 		String[] words = paragraph.split("\\s+");
