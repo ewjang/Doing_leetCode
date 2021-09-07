@@ -12,14 +12,16 @@ public class hashmap_solution {
 
         Map<Integer, Integer> numsMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int key = target - nums[i];
-            if (numsMap.get(nums[i]) != null) {
-                return answer;
-            } else {
-                numsMap.put(key, i);
+            int temp= target - nums[i];
+            if(numsMap.containsKey(temp)) {
+            	answer[0]=i;
+            	answer[1]=numsMap.get(temp);
+            	return answer; 
             }
+            numsMap.put(nums[i], i);
         }
         return answer;
+     
     }
 	public static void main(String[] args) {
 		
