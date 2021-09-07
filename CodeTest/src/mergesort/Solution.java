@@ -4,50 +4,26 @@ public class Solution {
 
 	public static void mergeSort(int[] arr) {
 		int[] tmp = new int[arr.length];
-		mergeSort(arr, tmp, 0, arr.length - 1);//정렬할 공간 배열, 임시 배열, startidx, endidx
+		mergeSort(arr, tmp, 0, arr.length - 1);// 정렬할 공간 배열, 임시 배열, startidx, endidx
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static void mergeSort(int[] arr, int[] tmp, int start, int end) {
-		if (start < end) { 
-			int mid = (start + end) / 2; //4
-			mergeSort(arr, tmp, start, mid);  
-			
+		if (start < end) {
+			int mid = (start + end) / 2; // 4
+			mergeSort(arr, tmp, start, mid);
 
-			mergeSort(arr, tmp, mid + 1, end); //!!
+			mergeSort(arr, tmp, mid + 1, end); // !!
 			merge(arr, tmp, start, mid, end); // 이미 정렬이 된 상태에서 merge문 실행
 
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public static void merge(int[] arr, int[] tmp, int start, int mid, int end) {
 		for (int i = start; i <= end; i++) {
 			tmp[i] = arr[i];
 		}
-		int part1 = start;//첫배열의 첫인덱스
-		int part2 = mid + 1; //두번째배열의 첫인덱스
+		int part1 = start;// 첫배열의 첫인덱스
+		int part2 = mid + 1; // 두번째배열의 첫인덱스
 		int index = start;
 		while (part1 <= mid && part2 <= end) {
 			if (tmp[part1] <= tmp[part2]) {
@@ -76,7 +52,7 @@ public class Solution {
 
 	public static void main(String[] args) {
 
-		int[] arr= {3,9,4,7,2,5,0,8,1,6};
+		int[] arr = { 3, 9, 4, 7, 2, 5, 0, 8, 1, 6 };
 		printArr(arr);
 		mergeSort(arr);
 		printArr(arr);
